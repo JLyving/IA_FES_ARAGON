@@ -120,7 +120,6 @@ public class GatoPantalla implements ActionListener {
 						seConk = true;
 						//En esta parte como el jugador puede tirar en el centro al inicio se hace que el NPC escoja un boton a lo "aleatorio" y si ese boton que escogio ya ha sido seleccionado anterior mente entonces escoge otro
 						int i = (int)(Math.random() * 8);
-						JOptionPane.showMessageDialog(frame, i);
 						if(buttons[i].getText().equals("")) {
 							buttons[i].setText("O");
 							buttons[i].setEnabled(false);
