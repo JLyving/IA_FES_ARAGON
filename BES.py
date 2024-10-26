@@ -35,7 +35,10 @@ def busqueda_escalada_simple(lista_adyacencia, tabla_valores, nodo_inicio, nodo_
     revisados = set(ruta)
     
     while nodo_actual != nodo_fin:
+        #muestra el nodo actual a revisar
         print(f"\nNodo actual: {nodo_actual}")
+
+        #se obtiene el sucesor del nodo actual 
         sucesores = lista_adyacencia.get(nodo_actual, [])
         if not sucesores:
             print("Se alcanzo un maximo")
@@ -53,14 +56,11 @@ def busqueda_escalada_simple(lista_adyacencia, tabla_valores, nodo_inicio, nodo_
             print("No hay sucesores sin visitar. No es posible continuar sin ciclo.")
             return None
 
-        # Encontrar el sucesor no visitado con el valor más bajo en la tabla de valores
+        # Encontrar el sucesor con el valor más bajo en la tabla de valores
         mejor_sucesor = min(sucesores_no_visitados, key=lambda nodo: tabla_valores[nodo_actual-1][nodo-1])
         
-        #Encontrar el sucesor con el valor mas bajo en la tabla de valores
-        #mejor_sucesor = min( nodo_inicio,key = lambda nodo: tabla_valores[nodo_actual-1][nodo-1])
-        #print(f"Nodos sucesores: {sucesores}")
-        
-        #agrega el mejor sucesor a la ruta y al conjunto de visitados
+
+        #agrega el mejor sucesor a la ruta 
         ruta.append(mejor_sucesor)
         revisados.add(mejor_sucesor)
         nodo_actual = mejor_sucesor
